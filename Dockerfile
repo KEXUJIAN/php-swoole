@@ -27,8 +27,9 @@ ENV LANGUAGE zh_CN:zh
 ENV LC_ALL zh_CN.UTF-8
 
 # 安装 composer 并更换源
-COPY composer-1.6.5 /usr/local/sbin/composer
-RUN sync && chmod +x /usr/local/sbin/composer \
+COPY composer-1.6.5 /
+RUN cp /composer-1.6.5 /usr/local/sbin/composer \ 
+    && sync && chmod +x /usr/local/sbin/composer \
     && composer config -g repo.packagist composer https://packagist.laravel-china.org \
     && apt-get install -y --no-install-recommends libfreetype6-dev \
         libjpeg62-turbo-dev \
@@ -56,5 +57,6 @@ COPY install-swoole.sh /
 COPY swoole-4.0.1.tgz /root/build/tmp/
 RUN cd / && /install-swoole.sh \
     && rm -f /install-swoole.sh && rm -rf /root/build \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -f /composer-1.6.5
 EXPOSE 80
