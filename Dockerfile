@@ -29,7 +29,7 @@ ENV LC_ALL zh_CN.UTF-8
 # 安装 composer 并更换源
 COPY composer-1.6.5 /usr/local/sbin/composer
 RUN chmod +x /usr/local/sbin/composer \
-    && composer config -g repo.packagist composer https://packagist.phpcomposer.com \
+    && composer config -g repo.packagist composer https://packagist.laravel-china.org \
     && apt-get install -y --no-install-recommends libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
