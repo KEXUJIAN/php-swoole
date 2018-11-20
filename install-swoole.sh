@@ -5,7 +5,7 @@ apt-get install -y --no-install-recommends libpcre3 libpcre3-dev libssl-dev libn
 mkdir -p ~/build
 cd ~/build
 mkdir -p tmp
-SWOOLE_VERSION=4.0.1
+SWOOLE_VERSION=4.2.8
 rm -rf ./swoole-${SWOOLE_VERSION}
 tar zxvf ./tmp/swoole-${SWOOLE_VERSION}.tgz
 mv swoole-${SWOOLE_VERSION}* swoole-${SWOOLE_VERSION}
