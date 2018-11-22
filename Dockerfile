@@ -63,6 +63,8 @@ RUN cd / && chmod +x /install-swoole.sh && sync \
     && /install-swoole.sh \
     && rm -f /install-swoole.sh && rm -rf /root/build \
     && rm -rf /var/lib/apt/lists/* \
-    && rm -f /composer-1.7.3
+    && rm -f /composer-1.7.3 \
+    && touch ~/.composer/composer.json \
+    && echo "{}" > ~/.composer/composer.json
 EXPOSE 80
 EXPOSE 8096
