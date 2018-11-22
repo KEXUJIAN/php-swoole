@@ -59,7 +59,8 @@ RUN cp /composer-1.7.3 /usr/local/sbin/composer \
 # 安装 Swoole
 COPY install-swoole.sh /
 COPY swoole-4.2.8.tgz /root/build/tmp/
-RUN cd / && /install-swoole.sh \
+RUN cd / && chmod +x /install-swoole.sh && sync \
+    && /install-swoole.sh \
     && rm -f /install-swoole.sh && rm -rf /root/build \
     && rm -rf /var/lib/apt/lists/* \
     && rm -f /composer-1.7.3
